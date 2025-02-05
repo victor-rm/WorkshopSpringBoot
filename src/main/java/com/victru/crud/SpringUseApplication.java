@@ -1,4 +1,4 @@
-package com.victru.lilcrud;
+package com.victru.crud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

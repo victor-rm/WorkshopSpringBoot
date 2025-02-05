@@ -1,6 +1,6 @@
-package com.victru.lilcrud.resources;
+package com.victru.crud.resources;
 
-import com.victru.lilcrud.entities.User;
+import com.victru.crud.entities.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

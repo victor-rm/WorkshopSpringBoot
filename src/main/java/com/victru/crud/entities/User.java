@@ -1,4 +1,4 @@
-package com.victru.lilcrud.entities;
+package com.victru.crud.entities;
 
 import java.io.Serial;
 import java.io.Serializable;
