@@ -1,9 +1,13 @@
 package com.victru.crud.entities;
 
+import jakarta.persistence.*;
+
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
+@Entity
+@Table(name = "tb_user")
 public class User  implements Serializable {
 
     // Para evitar a escrita extensa do número de série do Serializable para a Classe User
@@ -12,6 +16,9 @@ public class User  implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
+
+    @Id // Define a variável abaixo com ID para o JPA conseguir identificar a chave primária do banco de dados
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Determina a autoincrementação da variável ID
     private Long id;
     private String name;
     private String email;
@@ -25,6 +32,12 @@ public class User  implements Serializable {
         this.email = email;
         this.phone = phone;
         this.password = password;
+    }
+
+    // Há a necessidade de um contrutor sem argumentos pois em entidades JPA, é necessário ter um construtor público
+    // sem argumentos para que o provedor de persistência possa instanciar a classe via reflexão.
+    public User() {
+
     }
 
     public String getName() {
