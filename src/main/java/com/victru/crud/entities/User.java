@@ -1,9 +1,12 @@
 package com.victru.crud.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -24,6 +27,10 @@ public class User  implements Serializable {
     private String email;
     private String password;
     private String phone;
+
+    @JsonIgnore // Evitar associação de mão dupla, assim evitando um loop infinito entre usuários e pedidos
+    @OneToMany(mappedBy = "client")
+    private List<Order> orders = new ArrayList<>();
 
     public User(Long id, String name, String email, String phone, String password) {
         super();
@@ -78,6 +85,10 @@ public class User  implements Serializable {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public List<Order> getOrders() {
+        return orders;
     }
 
     @Override
